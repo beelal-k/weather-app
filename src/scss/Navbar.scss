@@ -1,0 +1,10 @@
+@use 'global'; 
+
+.navbar-main{
+    background-color: global.$navbar-blue;
+    display: flex;
+    padding-left: 5%;
+    // font-size: 16px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
