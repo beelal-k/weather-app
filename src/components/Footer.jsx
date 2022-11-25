@@ -10,7 +10,7 @@ const Footer = () => {
             <div className='footer-main'>
                 <div className='footer-child'>
                     <img src={githubIcon} />
-                    <p><a href='https://github.com/beelal-k'>github.com/beelal-k</a></p>
+                    <p><a href='https://github.com/beelal-k/weather-app'>github.com/beelal-k/weather-app</a></p>
                 </div>
                 {/* <div className='footer-child'>
                     <img src={linkedinIcon} />

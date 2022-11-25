@@ -9,17 +9,19 @@
     padding: 2%;
     padding-left: 5%;
     padding-right: 5%;
-    gap: 2%;
+    gap: 5%;
     justify-content: center;
+    align-items: center;
 }
 
 .footer-child{
+    // width: 30%;
     // border: 1px solid red;
     display: flex;
-    gap: 5%;    
+    gap: 3%;    
 
     img{
-        width: 10%;
+        width: 8%;
     }
 
     p{
@@ -32,4 +34,10 @@
     }
     
 
+}
+
+.footer-child:nth-child(2){
+    img{
+        width: 10%;
+    }
 }
