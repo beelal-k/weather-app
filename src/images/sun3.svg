@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="171.323 56.618 241.912 230.882" width="241.912" height="230.882" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 340.676 171.588 C 340.676 198.004 318.61 219.588 291.176 219.588 C 263.743 219.588 241.676 198.004 241.676 171.588 C 241.676 145.173 263.743 123.588 291.176 123.588 C 318.61 123.588 340.676 145.173 340.676 171.588 Z" stroke-width="7" transform="matrix(0.989882, 0.141896, -0.141896, 0.989882, 27.293917, -39.580536)" style="stroke: rgb(216, 165, 35); fill: rgba(0, 0, 0, 0);"/>
+  <line x1="291.411" y1="108.705" x2="291.705" y2="62.588" stroke="#D8A523" stroke-width="7" stroke-linecap="round" style=""/>
+  <line x1="176.352" y1="174.44" x2="229.588" y2="173.912" stroke="#D8A523" stroke-width="7" stroke-linecap="round" style=""/>
+  <line x1="290.852" y1="308.588" x2="290.323" y2="256.823" stroke="#D8A523" stroke-width="7" stroke-linecap="round" style="" transform="matrix(-1, 0, 0, -1, 581.91095, 539.676025)"/>
+  <line x1="369.94" y1="254.824" x2="337.06" y2="214.824" stroke="#D8A523" stroke-width="7" stroke-linecap="round" style="" transform="matrix(-1, 0, 0, -1, 707, 469.64801)"/>
+  <path stroke="#D8A523" stroke-width="7" stroke-linecap="round" style="" d="M 353.586 173.589 L 408.175 172.75"/>
+  <line x1="201.2" y1="109.181" x2="248.712" y2="109.649" stroke="#D8A523" stroke-width="7" stroke-linecap="round" style="" transform="matrix(-0.707107, -0.707107, 0.707107, -0.707107, 310.83429, 347.061768)"/>
+  <line x1="97.59" y1="152.499" x2="59.913" y2="189.368" stroke="#D8A523" stroke-width="7" stroke-linecap="round" transform="matrix(1, 0, 0, 1, 147.176208, 64.088081)"/>
+  <line x1="353.828" y1="137.18" x2="359.227" y2="87.215" stroke="#D8A523" stroke-width="7" stroke-linecap="round" style="" transform="matrix(-0.707107, -0.707107, 0.707107, -0.707107, 529.294922, 443.636108)"/>
+</svg>

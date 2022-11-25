@@ -1,7 +1,7 @@
 @use 'global';
 
 .future-weather-parent{
-    margin-top: 2%;
+    margin-top: 5%;
     // border: 1px solid red;
     padding-left: 5%;
     padding-right: 5%;
@@ -12,6 +12,7 @@
 
 .fw-sunIcon{
     width: 35%;
+    // border: 1px solid black;
 }
 
 .fw-child{
@@ -34,7 +35,7 @@
         background-color: transparent;
         border: 3px solid global.$text-blk;
         font-size: 25px;
-        width: 7%;
+        width: 6.5%;
         height: 11%;
         border-radius: 100%;
         position: absolute;
@@ -52,8 +53,23 @@
 
 .fw-child{
     border-right: 1px solid rgb(187, 187, 187);
+    width: 20%;
+
+    p{
+        font-size: 18px;
+    }
+    
 }
 
 .fw-child:last-child{
     border: 0;
+}
+
+
+
+.dates{
+    font-weight: 100;
+    color: global.$text-blk;
+    font-size: 15px;
+    color: black;
 }

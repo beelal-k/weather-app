@@ -1,8 +1,9 @@
 import React from 'react'
 import '../scss/Home.scss'
 import dropDown from '../images/dropDown.svg'
-import sunIcon3 from '../images/sunIcon3.svg'
+import sunIcon3 from '../images/sun3.svg'
 import FutureWeather from '../components/FutureWeather'
+import Footer from '../components/Footer'
 
 const Home = () => {
     return (
@@ -65,6 +66,8 @@ const Home = () => {
             </main>
 
             <FutureWeather />
+
+            <Footer />
 
 
         </>

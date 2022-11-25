@@ -49,12 +49,12 @@
     padding-right: 5%;
     display: flex;
     justify-content: center;
-    // gap: 5%;
+    gap: 5%;
     // align-items: ce;
 }
 
 .sunIcon{
-    width: 60%;
+    width: 90%;
     margin-top: 8%;
     // border: 1px solid red;
     
@@ -70,7 +70,7 @@
     p{
         font-size: 23px;
         // font-weight: 600;
-        margin-top: 3%;
+        margin-top: 8%;
         padding-top: 0;
         color: rgb(175, 175, 175);
     }
@@ -104,15 +104,16 @@
     // border: 1px solid orange;
 
     h1{
-        margin-bottom: 8.8%;
+        margin-top: 12%;
+        margin-bottom: 3.7%;
         text-align: right;
-    
+        
     }
 }
 
 .time-blinker{
     animation-name: blink;
-    animation-duration: 1.5s;
+    animation-duration: 1.7s;
     animation-iteration-count: infinite;
     // animation-direction: ;
 }
@@ -136,7 +137,8 @@
     font-size: 60px;
     font-weight: 100;
     position: relative;
-    color: rgb(116, 116, 116);
+    color: #3a3a3a;
+    // border: 1px solid red;
     // margin-top: 0;
     // margin-bottom: 0;
     // padding-bottom: 0;
