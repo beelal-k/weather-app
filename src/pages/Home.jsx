@@ -7,11 +7,6 @@ import { weatherCodes } from "../weatherCodes";
 
 const Home = ({ currentWeatherData }) => {
 
-    // const [statusCode, setStatusCode] = useState();
-
-    // setStatusCode(weatherCodes[currentWeatherData.current_weather.weathercode].status)
-    // console.log(weatherCodes);
-
     const currentDate = () => {
         let date = new Date();
         let day = date.toLocaleString('default', { day: 'numeric' });
@@ -25,8 +20,6 @@ const Home = ({ currentWeatherData }) => {
 
     }
 
-
-
     const currentTime = () => {
         let date = new Date();
         let hh = date.getHours();
@@ -34,7 +27,7 @@ const Home = ({ currentWeatherData }) => {
         let session = "AM"
 
 
-        if (hh == 0) {
+        if (hh === 0) {
             hh = 12;
         }
 
@@ -49,7 +42,7 @@ const Home = ({ currentWeatherData }) => {
         let time = hh + ":" + mm + " " + session;
 
         document.getElementById('clock').innerText = time;
-        let t = setTimeout(currentTime, 1000);
+        setTimeout(currentTime, 1000);
 
     }
 
@@ -63,7 +56,7 @@ const Home = ({ currentWeatherData }) => {
             <header className='home-header'>
                 <div className='home-header-left'>
                     <h3 className='current-weather'>CURRENT WEATHER</h3>
-                    <p className='current-weather'>Lahore, Pakistan <img src={dropDown} className="dropdown-icon" /></p>
+                    <p className='current-weather'>Lahore, Pakistan <img src={dropDown} className="dropdown-icon" alt="..."/></p>
                 </div>
                 <div className='home-header-right'>
                     <p id='date'>N/A</p>
@@ -78,7 +71,7 @@ const Home = ({ currentWeatherData }) => {
 
                     {
                         currentWeatherData.current_weather ?
-                            <img src={weatherCodes[currentWeatherData.current_weather.weathercode].img} />
+                            <img src={weatherCodes[currentWeatherData.current_weather.weathercode].img} alt="..." />
                             :
                             null
                     }
@@ -116,7 +109,7 @@ const Home = ({ currentWeatherData }) => {
                         </div>
                     </div>
                     <div className='weather-time-column'>
-                        <h1 className='weather-time' id='clock'></h1>
+                        <h1 className='weather-time' id='clock'>N/A</h1>
                         <div className='time-column-fields'>
                             <div className='weather-field'>
                                 <p>UV Index</p>
