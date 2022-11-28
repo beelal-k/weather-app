@@ -10,16 +10,30 @@ const Navbar = () => {
     const themeSlice = useSelector((state) => state.theme);
     const dispatch = useDispatch();
 
-    const updateTheme = () => {
-        dispatch(changeTheme(!themeSlice.useDarkTheme))
-        console.log(themeSlice.useDarkTheme);
-
+    // const updateTheme = () => {
+        
+        // }
+        
+        const updateTheme = () => {
+            
+            dispatch(changeTheme(!themeSlice.useDarkTheme))
+                console.log(themeSlice.useDarkTheme);
+            
+            if (themeSlice.useDarkTheme) {
+                document.getElementById('navMain').style.backgroundColor = "#232D3E";
+            }
+             if (themeSlice.useDarkTheme === false) {
+                document.getElementById('navMain').style.backgroundColor = "#B2E0EA";
+            }
+            
+            
+            
     }
 
 
     return (
         <>
-            <div className='navbar-main'>
+            <div className='navbar-main' id='navMain'>
                 <h2>WEATHER.IO</h2>
                 {
                     themeSlice.useDarkTheme ?

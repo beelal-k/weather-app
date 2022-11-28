@@ -5,7 +5,7 @@ import FutureWeather from '../components/FutureWeather'
 import Footer from '../components/Footer'
 import { weatherCodes } from "../weatherCodes";
 
-const Home = ({ currentWeatherData }) => {
+const Home = ({ currentWeatherData, ISODate, weatherData }) => {
 
     const currentDate = () => {
         let date = new Date();
@@ -13,10 +13,10 @@ const Home = ({ currentWeatherData }) => {
         let month = date.toLocaleString('default', { month: 'long' });
         let year = date.toLocaleString('default', { year: 'numeric' });
 
-        let currentDate = day + " " + month + ","  + " "  + year;
+        let currentDate = day + " " + month + "," + " " + year;
 
         document.getElementById('date').innerText = currentDate;
-        
+
 
     }
 
@@ -51,12 +51,17 @@ const Home = ({ currentWeatherData }) => {
         currentDate();
     })
 
+    console.log('weather: ', weatherData)
+    console.log('current date: ',ISODate)
+
+    // TODO: ISODate is undefined for some reason, fix it asap
+
     return (
         <>
             <header className='home-header'>
                 <div className='home-header-left'>
                     <h3 className='current-weather'>CURRENT WEATHER</h3>
-                    <p className='current-weather'>Lahore, Pakistan <img src={dropDown} className="dropdown-icon" alt="..."/></p>
+                    <p className='current-weather'>Lahore, Pakistan <img src={dropDown} className="dropdown-icon" alt="..." /></p>
                 </div>
                 <div className='home-header-right'>
                     <p id='date'>N/A</p>
@@ -99,12 +104,22 @@ const Home = ({ currentWeatherData }) => {
                                 <p>960 mb</p>
                             </div>
                             <div className='weather-field'>
-                                <p>Humidity</p>
-                                <p>54%</p>
+                                <p>Wind Speed</p>
+                                {
+                                    currentWeatherData.current_weather ?
+                                        <p className=''>{currentWeatherData.current_weather.windspeed} km/h</p>
+                                        :
+                                        null
+                                }
                             </div>
                             <div className='weather-field'>
                                 <p>Wind Direction</p>
-                                <p>NNW</p>
+                                {
+                                    currentWeatherData.current_weather ?
+                                        <p className=''>{currentWeatherData.current_weather.winddirection}&deg;</p>
+                                        :
+                                        null
+                                }
                             </div>
                         </div>
                     </div>
@@ -112,8 +127,14 @@ const Home = ({ currentWeatherData }) => {
                         <h1 className='weather-time' id='clock'>N/A</h1>
                         <div className='time-column-fields'>
                             <div className='weather-field'>
-                                <p>UV Index</p>
-                                <p>1 Low</p>
+                                <p>Humidity</p>
+                                {
+                                    weatherData ?
+                                        <p>{weatherData[ISODate]}</p>
+                                        // <p>None</p>
+                                        :
+                                        <p>N/A</p>
+                                }
                             </div>
 
                             <div className='weather-field'>
