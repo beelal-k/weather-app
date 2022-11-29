@@ -9,18 +9,18 @@
     display: flex;
     padding-left: 5%;
     padding-right: 5%;
+    display: flex;
 }
 
 .current-weather{
     display: inline;
     padding-right: 3%;
-
     
 }
 
 .home-header-left{
     // border: 1px solid black;
-    width: 50%;
+    width: 100%;
 }
 
 .dropdown-icon{
@@ -32,7 +32,7 @@
 
 
 .home-header-right{
-    width: 50%;
+    width: 100%;
     // border: 1px solid blue;
     text-align: right;
 
@@ -147,17 +147,7 @@
 }
 
 
-.weather-temper::after{
-    content: '';
-    background-color: transparent;
-    border: 3px solid global.$text-blk;
-    position: absolute;
-    border-radius: 100%;
-    width: 1.6%;
-    height: 9%;
-    top: 6%;
-    margin-top: 1.2%;
-}
+
 .weather-temper::before{
     content: 'Celsius';
     position: absolute;
@@ -200,4 +190,70 @@
 
 }
 
+.selectTrigger{
+    background-color: white;
+    border: 0;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 0.5%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    outline: none;
+}
+
+@media (max-width:680px) {
+    .home-header{
+        flex-direction: column;
+        font-size: 17px;
+        gap: 10px;
+        margin-bottom: 5%;
+    }
+
+    .dropdown-icon{
+        width: 3%;
+    }
+    .home-header-right{
+        text-align: left;
+    }
+    .weather-main{
+        flex-direction: column;
+        margin-bottom: 20%;
+
+    }
+    .weather-main-right{
+        flex-direction: column;
+        // border: 1px solid red;
+        width: 100%;    
+        justify-content: center;
+        // align-items: ;
+    }
+    .weather-main-left{
+        p{
+            margin-bottom: 0;
+            font-size: 28px;
+        }
+    }
+
+    .weather-temp-column{
+        // border: 1px solid red;
+        width: 100%;
+        
+        h1::before{
+            margin-left: 50%;
+        }
+        p{
+            font-size: 22px;
+        }
+        
+    }
+    .weather-time-column{
+        width: 100%;
+        h1{
+            text-align: left;
+        }
+        p{
+            font-size: 22px;
+        }
+    }
+}
 

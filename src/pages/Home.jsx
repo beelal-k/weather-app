@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../scss/Home.scss'
-import dropDown from '../images/dropDown.svg'
+import moonIcon from '../images/moonIcon.svg'
 import FutureWeather from '../components/FutureWeather'
 import Footer from '../components/Footer'
 import { weatherCodes } from "../weatherCodes";
+import * as Select from '@radix-ui/react-select';
 
-const Home = ({ currentWeatherData, ISODate, weatherData }) => {
 
-    const currentDate = () => {
+
+const Home = ({ currentWeatherData, recentDate, darkMode }) => {
+
+    const [dayTime, setDayTime] = useState(true);
+
+
+    const getCurrentDate = () => {
         let date = new Date();
         let day = date.toLocaleString('default', { day: 'numeric' });
         let month = date.toLocaleString('default', { month: 'long' });
@@ -16,8 +22,6 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
         let currentDate = day + " " + month + "," + " " + year;
 
         document.getElementById('date').innerText = currentDate;
-
-
     }
 
     const currentTime = () => {
@@ -42,26 +46,55 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
         let time = hh + ":" + mm + " " + session;
 
         document.getElementById('clock').innerText = time;
+        if (session === "PM") {
+            setDayTime(false)
+        }
+        else {
+            setDayTime(true);
+        }
         setTimeout(currentTime, 1000);
 
     }
 
     useEffect(() => {
         currentTime();
-        currentDate();
+        getCurrentDate();
     })
-
-    console.log('weather: ', weatherData)
-    console.log('current date: ',ISODate)
-
-    // TODO: ISODate is undefined for some reason, fix it asap
 
     return (
         <>
             <header className='home-header'>
                 <div className='home-header-left'>
                     <h3 className='current-weather'>CURRENT WEATHER</h3>
-                    <p className='current-weather'>Lahore, Pakistan <img src={dropDown} className="dropdown-icon" alt="..." /></p>
+                    <Select.Root>
+                        <Select.Trigger className='selectTrigger'>
+                            <Select.Value placeholder="Lahore, Pakistan"/>
+                            <Select.Icon />
+                        </Select.Trigger>
+
+                        <Select.Portal>
+                            <Select.Content>
+                                <Select.ScrollUpButton />
+                                <Select.Viewport>
+                                    <Select.Item>
+                                        <Select.ItemText textValue=""/>    
+                                        <Select.ItemIndicator />
+                                    </Select.Item>
+
+                                    <Select.Group>
+                                        <Select.Label />
+                                        <Select.Item>
+                                            <Select.ItemText />
+                                            <Select.ItemIndicator />
+                                        </Select.Item>
+                                    </Select.Group>
+
+                                    <Select.Separator />
+                                </Select.Viewport>
+                                <Select.ScrollDownButton />
+                            </Select.Content>
+                        </Select.Portal>
+                    </Select.Root>
                 </div>
                 <div className='home-header-right'>
                     <p id='date'>N/A</p>
@@ -72,20 +105,28 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
             <main className='weather-main'>
 
                 <div className='weather-main-left'>
-                    {/* <img src={sunIcon3} className="sunIcon" /> */}
 
                     {
-                        currentWeatherData.current_weather ?
-                            <img src={weatherCodes[currentWeatherData.current_weather.weathercode].img} alt="..." />
+                        dayTime ?
+                            currentWeatherData.current_weather ?
+                                <img src={weatherCodes[currentWeatherData.current_weather.weathercode].img} alt="..." />
+                                :
+                                null
+
                             :
-                            null
+                            currentWeatherData.current_weather ?
+                                <img src={moonIcon} alt="..." />
+                                :
+                                null
+
+
                     }
 
                     {
                         currentWeatherData.current_weather ?
                             <p>{weatherCodes[currentWeatherData.current_weather.weathercode].status}</p>
                             :
-                            null
+                            <p>N/A</p>
                     }
 
                 </div>
@@ -93,15 +134,20 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
                     <div className='weather-temp-column'>
                         {
                             currentWeatherData.current_weather ?
-                                <h1 className='weather-temper'>{currentWeatherData.current_weather.temperature}</h1>
+                                <h1 className='weather-temper'>{currentWeatherData.current_weather.temperature}&deg;</h1>
                                 :
-                                null
+                                <h1>N/A</h1>
                         }
 
                         <div className='temp-column-fields'>
                             <div className='weather-field'>
-                                <p>Pressure</p>
-                                <p>960 mb</p>
+                                <p>Atmospheric Pressure</p>
+                                {
+                                    currentWeatherData.hourly ?
+                                        <p className=''>{currentWeatherData.hourly.pressure_msl[recentDate]} hPa</p>
+                                        :
+                                        <p>N/A</p>
+                                }
                             </div>
                             <div className='weather-field'>
                                 <p>Wind Speed</p>
@@ -109,7 +155,7 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
                                     currentWeatherData.current_weather ?
                                         <p className=''>{currentWeatherData.current_weather.windspeed} km/h</p>
                                         :
-                                        null
+                                        <p>N/A</p>
                                 }
                             </div>
                             <div className='weather-field'>
@@ -118,7 +164,7 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
                                     currentWeatherData.current_weather ?
                                         <p className=''>{currentWeatherData.current_weather.winddirection}&deg;</p>
                                         :
-                                        null
+                                        <p>N/A</p>
                                 }
                             </div>
                         </div>
@@ -127,11 +173,10 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
                         <h1 className='weather-time' id='clock'>N/A</h1>
                         <div className='time-column-fields'>
                             <div className='weather-field'>
-                                <p>Humidity</p>
+                                <p>Relative Humidity</p>
                                 {
-                                    weatherData ?
-                                        <p>{weatherData[ISODate]}</p>
-                                        // <p>None</p>
+                                    currentWeatherData.hourly ?
+                                        <p>{currentWeatherData.hourly.relativehumidity_2m[recentDate]}%</p>
                                         :
                                         <p>N/A</p>
                                 }
@@ -139,11 +184,23 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
 
                             <div className='weather-field'>
                                 <p>Visbility</p>
-                                <p>5 km</p>
+                                {
+                                    currentWeatherData.hourly ?
+                                        <p>{(currentWeatherData.hourly.visibility[recentDate]) / 1000}%</p>
+                                        :
+                                        <p>N/A</p>
+                                }
                             </div>
                             <div className='weather-field'>
-                                <p>Air Quality Index</p>
-                                <p>US 161</p>
+                                <p>Direct Radiation</p>
+                                {
+                                    currentWeatherData.hourly ?
+                                        <p>{currentWeatherData.hourly.direct_radiation[recentDate]} W/m&sup2;</p>
+                                        // <p>None</p>
+                                        :
+                                        <p>N/A</p>
+                                }
+
                             </div>
                         </div>
 
@@ -154,7 +211,7 @@ const Home = ({ currentWeatherData, ISODate, weatherData }) => {
 
             </main>
 
-            <FutureWeather />
+            <FutureWeather currentWeatherData={currentWeatherData} recentDate={recentDate} />
 
             <Footer />
 

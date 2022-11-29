@@ -1,5 +1,4 @@
 import sunIcon from './images/sun3.svg'
-import cloudy from './images/cloudy.svg'
 import rainyCloudy from './images/rainyCloud2.svg'
 import sunnyCloudy from './images/sunnyCloudy.svg'
 
@@ -70,51 +69,51 @@ export const weatherCodes = {
       status: 'Heavy Freezing Rain'
     },
     71: {
-      img: sunIcon,
+      img: rainyCloudy,
       status: 'Slight Snowfall'
     },
     73:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Moderate Snowfall"
     },
     75:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Heavy Snowfall"
     },
     77:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Snow grains"
     },
     80:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Slight Rain showers"
     },
     81:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Moderate Rain Showers"
     },
     82:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Violent Rain Showers"
     },
     85:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Slight Snow Showers"
     },
     86:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Heavy Snow Showers"
     },
     95:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Slight Thunderstorm"
     },
     96:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Moderate Thunderstorm"
     },
     99:{
-      img:sunIcon,
+      img:rainyCloudy,
       status:"Thunderstorm with hail"
     },
   }
