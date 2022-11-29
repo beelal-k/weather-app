@@ -19,7 +19,7 @@ const Home = ({ currentWeatherData, recentDate, darkMode }) => {
         let month = date.toLocaleString('default', { month: 'long' });
         let year = date.toLocaleString('default', { year: 'numeric' });
 
-        let currentDate = day + " " + month + "," + " " + year;
+        let currentDate = month + " " + day + "," + " " + year;
 
         document.getElementById('date').innerText = currentDate;
     }
