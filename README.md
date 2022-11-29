@@ -2,4 +2,4 @@
 
 A simple website that shows the current weather through a weather API.
 
-Made using: React.js, Redux, Sass, and Axios.
+Made using: React.js, Sass, and Axios. Open-meteo weather API
